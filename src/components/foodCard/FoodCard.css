@@ -1,0 +1,45 @@
+.FoodCardComponent {
+  /* border: solid; */
+  /* display: flex; */
+  margin: 20px;
+  width: 250px;
+  position: relative;
+}
+.FoodCardComponent img {
+  /* border: solid; */
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -80px;
+  margin: 0 50px;
+  border-radius: 50%;
+  /* box-shadow: 0px 24px 30px -12px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0px 15px 10px 0.5px #c1c1c1;
+  /* display: none; */
+}
+.FoodCardComponent .cardPan {
+  /* border: solid; */
+  width: 250px;
+  border-radius: 36px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+  /* background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow: 6px 6px 0px #e6e6e6, -6px -6px 0px #ffffff; */
+  box-shadow: inset 52px 54px 75px -23px rgba(0, 0, 0, 0.1),
+    20px 27px 27px -4px rgba(0, 0, 0, 0.1);
+}
+
+.FoodCardComponent .cardPan .text {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px;
+}
+.FoodCardComponent .cardPan .footer {
+  /* border: solid; */
+  margin-top: auto;
+  margin-bottom: 20px;
+}
