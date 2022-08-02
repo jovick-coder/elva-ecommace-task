@@ -49,6 +49,11 @@ button.rounded {
   z-index: 20;
   box-shadow: 0px 2px 10px rgb(123, 123, 123);
   border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.scroll-container svg:hover {
+  color: rgb(219, 53, 69);
 }
 .scroll-container svg.right {
   right: 0;
