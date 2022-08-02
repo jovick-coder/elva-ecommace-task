@@ -17,6 +17,16 @@
   box-shadow: 0px 15px 10px 0.5px #c1c1c1;
   /* display: none; */
 }
+.FoodCardComponent .icon svg {
+  border-radius: 10px 10px 20px 10px;
+  /* border: solid red; */
+  top: -75px;
+  font-size: 40spx;
+  left: 160px;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+}
 .FoodCardComponent .cardPan {
   /* border: solid; */
   width: 250px;

@@ -1,13 +1,15 @@
 import React from "react";
+import { FaCartPlus } from "react-icons/fa";
 import "./FoodCard.css";
 // import { foodObject } from "../../foodObject";
 
 function FoodCardComponent({ img, name, price, id }) {
-  // console.log();
-
   return (
     <div className="FoodCardComponent" key={id}>
       <img src={img} alt="" />
+      <div className="icon">
+        <FaCartPlus />
+      </div>
       <div className="cardPan">
         <div className="text">
           <h5>{name}</h5>
