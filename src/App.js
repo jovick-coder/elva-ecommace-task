@@ -5,10 +5,9 @@ import {
   FaArrowCircleLeft,
   FaArrowCircleRight,
   FaShoppingBag,
-  FaStar,
 } from "react-icons/fa";
-import { foodObject } from "./foodObject";
 import StarComponent, { StarImageComponent } from "./components/stars/Stars";
+import { useEffect, useState } from "react";
 
 function App() {
   return (
@@ -68,18 +67,25 @@ function App() {
       <section>
         <div className="container scroll-container">
           <FaArrowCircleLeft className="left" />
-          <div className="scroll-div">
-            {foodObject.meals.map((food) => {
-              const { strMeal, strMealThumb, idMeal } = food;
-              return (
-                <FoodCardComponent
-                  img={strMealThumb}
-                  name={strMeal}
-                  price={"200"}
-                  id={idMeal}
-                />
-              );
-            })}
+          <div className="scroll-div w-100">
+            {!foodObject.loading ? (
+              <>
+                {foodObject.meals.map((food) => {
+                  console.log("food");
+                  const { strMeal, strMealThumb, idMeal } = food;
+                  return (
+                    <FoodCardComponent
+                      img={strMealThumb}
+                      name={strMeal}
+                      price={"200"}
+                      id={idMeal}
+                    />
+                  );
+                })}
+              </>
+            ) : (
+              <span className="m-auto fs-1">Loading...</span>
+            )}
           </div>
           <FaArrowCircleRight className="right" />
         </div>
