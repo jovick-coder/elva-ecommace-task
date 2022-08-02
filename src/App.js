@@ -8,6 +8,7 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { foodObject } from "./foodObject";
+import StarComponent from "./components/stars/Stars";
 
 function App() {
   return (
@@ -48,11 +49,7 @@ function App() {
                 <span>Review</span>
                 <div>images</div>
                 <div>
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
+                  <StarComponent rate={5} />
                 </div>
               </div>
             </div>
