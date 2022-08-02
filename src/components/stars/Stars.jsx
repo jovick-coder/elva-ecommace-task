@@ -15,3 +15,14 @@ function StarComponent({ rate }) {
 }
 
 export default StarComponent;
+
+export function StarImageComponent({ rate }) {
+  return (
+    <>
+      {[...Array(rate)].map((e, i) => (
+        <div className="starImage" key={i}></div>
+      ))}
+      <div className="starImage">48</div>
+    </>
+  );
+}

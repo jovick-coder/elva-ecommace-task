@@ -1,3 +1,19 @@
 .star {
   color: rgb(214, 185, 0);
 }
+.starImage {
+  /* position: absolute; */
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: solid #ddd 1px;
+  border-radius: 50%;
+  /* right: 10px;
+  margin: 10px; */
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -15px;
+}
