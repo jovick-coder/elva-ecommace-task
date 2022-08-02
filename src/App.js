@@ -10,6 +10,18 @@ import StarComponent, { StarImageComponent } from "./components/stars/Stars";
 import { useEffect, useState } from "react";
 
 function App() {
+  const [foodObject, setFoodObject] = useState({ loading: true, meals: [] });
+
+  useEffect(() => {
+    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
+      .then((response) => response.json())
+      .then((data) => {
+        setFoodObject({
+          loading: false,
+          meals: data.meals,
+        });
+      });
+  }, []);
   return (
     <div className="App">
       <div className="top-nav">
