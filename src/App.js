@@ -8,7 +8,7 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { foodObject } from "./foodObject";
-import StarComponent from "./components/stars/Stars";
+import StarComponent, { StarImageComponent } from "./components/stars/Stars";
 
 function App() {
   return (
@@ -47,7 +47,13 @@ function App() {
               </div>
               <div className="mt-5">
                 <span>Review</span>
-                <div>images</div>
+                <div
+                  className="d-flex"
+                  style={{ position: "relative", height: "40px" }}
+                >
+                  {" "}
+                  <StarImageComponent rate={3} />
+                </div>
                 <div>
                   <StarComponent rate={5} />
                 </div>
