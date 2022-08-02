@@ -1,7 +1,12 @@
 import "./App.css";
 import heroImage from "./assets/hero-image-removebg-preview.png";
 import FoodCardComponent from "./components/foodCard/FoodCard";
-import { FaArrowCircleLeft, FaArrowCircleRight, FaStar } from "react-icons/fa";
+import {
+  FaArrowCircleLeft,
+  FaArrowCircleRight,
+  FaShoppingBag,
+  FaStar,
+} from "react-icons/fa";
 import { foodObject } from "./foodObject";
 
 function App() {
@@ -17,7 +22,9 @@ function App() {
         </ul>
 
         <div>
-          <span>icon</span>
+          <span>
+            <FaShoppingBag />
+          </span>
           <button className="btn rounded btn-danger ms-3">Sign up</button>
         </div>
       </div>
