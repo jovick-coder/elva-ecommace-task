@@ -4,13 +4,18 @@ import FoodCardComponent from "./components/foodCard/FoodCard";
 import {
   FaArrowCircleLeft,
   FaArrowCircleRight,
+  FaBars,
   FaShoppingBag,
 } from "react-icons/fa";
 import StarComponent, { StarImageComponent } from "./components/stars/Stars";
 import { useEffect, useState } from "react";
+import HorizontalScrolls, {
+  HorizontalScrollComponent,
+} from "./components/horizontalScrolls/HorizontalScrolls";
 
 function App() {
   const [foodObject, setFoodObject] = useState({ loading: true, meals: [] });
+  const [openMobileNav, setOpenMobileNav] = useState(true);
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
@@ -26,7 +31,7 @@ function App() {
     <div className="App">
       <div className="top-nav">
         <div>Logo</div>
-        <ul className="nav">
+        <ul className="nav" style={!openMobileNav ? { display: "none" } : null}>
           <li className="active">Home</li>
           <li>Menu</li>
           <li>About us</li>
@@ -38,6 +43,12 @@ function App() {
             <FaShoppingBag />
           </span>
           <button className="btn rounded btn-danger ms-3">Sign up</button>
+          <button
+            className="mobile-menu"
+            onClick={() => setOpenMobileNav(!openMobileNav)}
+          >
+            <FaBars />
+          </button>
         </div>
       </div>
 
@@ -70,7 +81,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 image-col">
+            <div className="col-md-6 image-col d-none d-md-block">
               <img src={heroImage} alt="hero food" />
             </div>
           </div>
@@ -83,7 +94,6 @@ function App() {
             {!foodObject.loading ? (
               <>
                 {foodObject.meals.map((food) => {
-                  console.log("food");
                   const { strMeal, strMealThumb, idMeal } = food;
                   return (
                     <FoodCardComponent
@@ -102,6 +112,12 @@ function App() {
           <FaArrowCircleRight className="right" />
         </div>
       </section>
+      <section>
+        <HorizontalScrolls />
+      </section>
+      {/* <section>
+        <HorizontalScrollComponent foodObject={foodObject} />
+      </section> */}
     </div>
   );
 }
