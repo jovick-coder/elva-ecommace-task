@@ -10,10 +10,14 @@
   border-radius: 50%;
   /* right: 10px;
   margin: 10px; */
-  background-color: black;
+  background-color: rgb(56, 56, 56);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: -15px;
+  overflow: hidden;
+}
+.starImage img {
+  width: 100%;
 }

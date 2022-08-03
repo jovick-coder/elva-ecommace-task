@@ -1,6 +1,7 @@
 import React from "react";
 import "./StarComponent.css";
 import { FaStar } from "react-icons/fa";
+import profilePix from "../../assets/profile-pix.jpg";
 
 function StarComponent({ rate }) {
   return (
@@ -20,7 +21,9 @@ export function StarImageComponent({ rate }) {
   return (
     <>
       {[...Array(rate)].map((e, i) => (
-        <div className="starImage" key={i}></div>
+        <div className="starImage" key={i}>
+          <img src={profilePix} alt="" />
+        </div>
       ))}
       <div className="starImage">48</div>
     </>
