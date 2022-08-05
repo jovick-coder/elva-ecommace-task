@@ -8,7 +8,7 @@ function FoodCardComponent({ img, name, price, id }) {
     <div className="FoodCardComponent" key={id}>
       <img src={img} alt="" />
       <div className="icon">
-        <FaCartPlus />
+        <FaCartPlus className="cart" />
       </div>
       <div className="cardPan">
         <div className="text">
