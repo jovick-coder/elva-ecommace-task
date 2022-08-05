@@ -93,7 +93,7 @@ button.rounded {
   display: flex;
   position: relative;
 }
-.scroll-container svg {
+.scroll-container .arrow {
   font-size: 40px;
   position: absolute;
   top: 200px;
@@ -103,21 +103,22 @@ button.rounded {
   cursor: pointer;
   transition: all 0.5s;
 }
-.scroll-container svg:hover {
+.scroll-container .arrow:hover {
   color: rgb(219, 53, 69);
 }
-.scroll-container svg.right {
+.scroll-container .arrow.right {
   right: 0;
 }
-.scroll-container svg.left {
+.scroll-container .arrow.left {
   left: 0;
 }
 
 .scroll-div {
   display: flex;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  height: 402px;
+  overflow: hidden;
+  /* overflow-x: scroll; */
+  justify-content: center;
+  /* height: 402px; */
   padding-top: 90px;
   position: relative;
 }
