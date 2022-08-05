@@ -1,27 +1,21 @@
 .FoodCardComponent {
-  /* border: solid; */
-  /* display: flex; */
   margin: 20px;
   width: 250px;
   position: relative;
   user-select: none;
 }
 .FoodCardComponent img {
-  /* border: solid; */
   width: 150px;
   height: 150px;
   position: absolute;
   top: -80px;
   margin: 0 50px;
   border-radius: 50%;
-  /* box-shadow: 0px 24px 30px -12px rgba(0, 0, 0, 0.1); */
   box-shadow: 0px 15px 10px 0.5px #c1c1c1;
-  /* display: none; */
 }
 .FoodCardComponent .icon {
   border-radius: 10px 10px 20px 10px;
   position: absolute;
-  /* border: solid red; */
   top: -75px;
   font-size: 20px;
   left: 160px;
@@ -30,7 +24,6 @@
   padding: 5px 10px;
 }
 .FoodCardComponent .cardPan {
-  /* border: solid; */
   width: 250px;
   border-radius: 36px;
   height: 250px;
@@ -58,7 +51,6 @@
 
 .dot {
   position: absolute;
-  /* border: solid; */
   bottom: 0;
   width: 100%;
   display: flex;
