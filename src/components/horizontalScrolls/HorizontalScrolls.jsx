@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import FoodCardComponent from "../foodCard/FoodCard";
+import {
+  FaArrowCircleLeft,
+  FaArrowCircleRight,
+  FaDotCircle,
+} from "react-icons/fa";
 
 const getItems = () =>
   Array(20)
@@ -131,23 +136,34 @@ export function HorizontalScrollComponent({ foodObject }) {
   };
   return (
     <>
-      <div className="scroll-div w-100">
-        {() => setStartIndex(0)}
-        {visibleItems.map((item, index) => {
-          const { strMeal, strMealThumb, idMeal } = item;
+      <div className="container scroll-container">
+        <FaArrowCircleLeft
+          className="arrow left"
+          onClick={() => prevItemFunction()}
+        />
+        <div className="scroll-div w-100">
+          {() => setStartIndex(0)}
+          {visibleItems.map((item, index) => {
+            const { strMeal, strMealThumb, idMeal } = item;
 
-          return (
-            <>
-              <FoodCardComponent
-                img={strMealThumb}
-                name={strMeal}
-                price={"200"}
-                id={idMeal}
-              />
-            </>
-          );
-          // }
-        })}
+            return (
+              <>
+                <FoodCardComponent
+                  img={strMealThumb}
+                  name={strMeal}
+                  price={"200"}
+                  id={idMeal}
+                />
+              </>
+            );
+            // }
+          })}
+        </div>
+
+        <FaArrowCircleRight
+          className="arrow right"
+          onClick={() => nextItemFunction()}
+        />
       </div>
       {/* <button onClick={() => prevItemFunction()}> {"<<"} </button>
       <button onClick={() => nextItemFunction()}> {">>"}</button> */}
