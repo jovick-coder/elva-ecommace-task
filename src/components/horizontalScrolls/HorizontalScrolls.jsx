@@ -101,7 +101,7 @@ export default HorizontalScrolls;
 export function HorizontalScrollComponent({ foodObject }) {
   const [items, setItems] = useState(foodObject.meals);
   const [startIndex, setStartIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(3);
+  const [itemCount, setItemCount] = useState(4);
   const [visibleItems, setVisibleItems] = useState([]);
   // const [visibleItemsIndex, setVisibleItemsIndex] = useState([0, 1, 2]);
 
@@ -122,13 +122,12 @@ export function HorizontalScrollComponent({ foodObject }) {
   }
 
   function nextItemFunction() {
-    if (startIndex === items.length - startIndex + itemCount) {
+    // console.log(startIndex, items.length - startIndex + itemCount);
+    if (startIndex >= items.length - startIndex + itemCount) {
       setStartIndex(0);
-
       return console.log("last image");
     }
     setStartIndex(startIndex + 1);
-    // // setEndIndex(endIndex + 1);
   }
   window.onload = function () {
     // Your code
@@ -147,26 +146,30 @@ export function HorizontalScrollComponent({ foodObject }) {
             const { strMeal, strMealThumb, idMeal } = item;
 
             return (
-              <>
+              <div key={`card${index}`}>
                 <FoodCardComponent
                   img={strMealThumb}
                   name={strMeal}
                   price={"200"}
                   id={idMeal}
                 />
-              </>
+              </div>
             );
             // }
           })}
         </div>
-
+        <div className="dot">
+          {[...Array(Math.round(items.length / itemCount))].map((e, i) => (
+            <span className="" key={`dot${i}`}>
+              <FaDotCircle />
+            </span>
+          ))}
+        </div>
         <FaArrowCircleRight
           className="arrow right"
           onClick={() => nextItemFunction()}
         />
       </div>
-      {/* <button onClick={() => prevItemFunction()}> {"<<"} </button>
-      <button onClick={() => nextItemFunction()}> {">>"}</button> */}
     </>
   );
 }
