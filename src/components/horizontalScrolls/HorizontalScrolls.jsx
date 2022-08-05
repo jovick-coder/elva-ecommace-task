@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import FoodCardComponent from "../foodCard/FoodCard";
 
@@ -94,43 +94,59 @@ function Card({ onClick, selected, title, itemId }) {
 export default HorizontalScrolls;
 
 export function HorizontalScrollComponent({ foodObject }) {
-  const [items, setItems] = React.useState([]);
-  const [startIndex, setStartIndex] = React.useState(0);
-  const [endIndex, setEndIndex] = React.useState(2);
-  const [visibleItems, setVisibleItems] = React.useState([]);
-  const [visibleItemsIndex, setVisibleItemsIndex] = React.useState([0, 1, 2]);
+  const [items, setItems] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [itemCount, setItemCount] = useState(3);
+  const [visibleItems, setVisibleItems] = useState([]);
+  // const [visibleItemsIndex, setVisibleItemsIndex] = useState([0, 1, 2]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setItems(foodObject.meals);
   }, []);
-  function prevItemFunction() {}
+  useEffect(() => {
+    setVisibleItems(items.slice(startIndex, startIndex + itemCount));
+  }, [startIndex]);
 
-  function nextItemFunction() {}
-  function setVisibleItemFunction() {
-    // let
-    // setVisibleItems([])
+  function prevItemFunction() {
+    if (startIndex === 0) {
+      setStartIndex(items.length - itemCount);
+
+      return console.log("first image");
+    }
+    setStartIndex(startIndex - 1);
   }
 
+  function nextItemFunction() {
+    if (startIndex === items.length - startIndex + itemCount) {
+      setStartIndex(0);
+
+      return console.log("last image");
+    }
+    setStartIndex(startIndex + 1);
+    // // setEndIndex(endIndex + 1);
+  }
+  window.onload = function () {
+    // Your code
+    setVisibleItems(items.slice(startIndex, startIndex + itemCount));
+  };
   return (
     <>
       <div className="scroll-div w-100">
-        {items.map((item, index) => {
+        {() => setStartIndex(0)}
+        {visibleItems.map((item, index) => {
           const { strMeal, strMealThumb, idMeal } = item;
 
-          if (index <= startIndex && index >= endIndex) {
-            // if (index === startIndex) {
-            console.log(item);
-            return (
-              <>
-                <FoodCardComponent
-                  img={strMealThumb}
-                  name={strMeal}
-                  price={"200"}
-                  id={idMeal}
-                />
-              </>
-            );
-          }
+          return (
+            <>
+              <FoodCardComponent
+                img={strMealThumb}
+                name={strMeal}
+                price={"200"}
+                id={idMeal}
+              />
+            </>
+          );
+          // }
         })}
       </div>
       <button onClick={() => prevItemFunction()}> {"<<"} </button>
