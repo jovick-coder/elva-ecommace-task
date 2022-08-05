@@ -101,7 +101,7 @@ export default HorizontalScrolls;
 export function HorizontalScrollComponent({ foodObject }) {
   const [items, setItems] = useState(foodObject.meals);
   const [startIndex, setStartIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(4);
+  const [itemCount, setItemCount] = useState(3);
   const [visibleItems, setVisibleItems] = useState([]);
   // const [visibleItemsIndex, setVisibleItemsIndex] = useState([0, 1, 2]);
 
