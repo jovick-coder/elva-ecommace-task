@@ -1,17 +1,9 @@
 import "./App.css";
 import heroImage from "./assets/hero-image-removebg-preview.png";
-import FoodCardComponent from "./components/foodCard/FoodCard";
-import {
-  FaArrowCircleLeft,
-  FaArrowCircleRight,
-  FaBars,
-  FaShoppingBag,
-} from "react-icons/fa";
+import { FaBars, FaShoppingBag } from "react-icons/fa";
 import StarComponent, { StarImageComponent } from "./components/stars/Stars";
 import { useEffect, useState } from "react";
-import HorizontalScrolls, {
-  HorizontalScrollComponent,
-} from "./components/horizontalScrolls/HorizontalScrolls";
+import { HorizontalScrollComponent } from "./components/horizontalScrolls/HorizontalScrolls";
 
 function App() {
   const [foodObject, setFoodObject] = useState({
