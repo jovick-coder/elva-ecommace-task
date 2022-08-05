@@ -91,37 +91,14 @@ function App() {
         </div>
       </section>
       <section>
-        <div className="container scroll-container">
-          <FaArrowCircleLeft className="left" />
-          <div className="scroll-div w-100">
-            {!foodObject.loading ? (
-              <>
-                {/* {foodObject.meals.map((food) => {
-                  const { strMeal, strMealThumb, idMeal } = food;
-                  return (
-                    <FoodCardComponent
-                      img={strMealThumb}
-                      name={strMeal}
-                      price={"200"}
-                      id={idMeal}
-                    />
-                  );
-                })} */}
-                <HorizontalScrollComponent foodObject={foodObject} />
-              </>
-            ) : (
-              <span className="m-auto fs-1">Loading...</span>
-            )}
-          </div>
-          <FaArrowCircleRight className="right" />
-        </div>
+        {!foodObject.loading ? (
+          <>
+            <HorizontalScrollComponent foodObject={foodObject} />
+          </>
+        ) : (
+          <span className="m-auto fs-1">Loading...</span>
+        )}
       </section>
-      <section>
-        <HorizontalScrolls />
-      </section>
-      {/* <section>
-        <HorizontalScrollComponent foodObject={foodObject} />
-      </section> */}
     </div>
   );
 }
