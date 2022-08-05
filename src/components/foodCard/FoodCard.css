@@ -55,3 +55,17 @@
   margin-top: auto;
   margin-bottom: 20px;
 }
+
+.dot {
+  position: absolute;
+  /* border: solid; */
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 10px;
+}
+.dot svg {
+  margin: 1px 3px;
+}
