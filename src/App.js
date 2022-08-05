@@ -14,7 +14,10 @@ import HorizontalScrolls, {
 } from "./components/horizontalScrolls/HorizontalScrolls";
 
 function App() {
-  const [foodObject, setFoodObject] = useState({ loading: true, meals: [] });
+  const [foodObject, setFoodObject] = useState({
+    loading: true,
+    meals: [],
+  });
   const [openMobileNav, setOpenMobileNav] = useState(true);
 
   useEffect(() => {
@@ -93,7 +96,7 @@ function App() {
           <div className="scroll-div w-100">
             {!foodObject.loading ? (
               <>
-                {foodObject.meals.map((food) => {
+                {/* {foodObject.meals.map((food) => {
                   const { strMeal, strMealThumb, idMeal } = food;
                   return (
                     <FoodCardComponent
@@ -103,7 +106,8 @@ function App() {
                       id={idMeal}
                     />
                   );
-                })}
+                })} */}
+                <HorizontalScrollComponent foodObject={foodObject} />
               </>
             ) : (
               <span className="m-auto fs-1">Loading...</span>
