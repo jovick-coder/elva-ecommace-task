@@ -114,7 +114,7 @@ button.rounded {
   .hero-section .text-col h1 {
     font-size: 45px;
     line-height: 4rem;
-    text-shadow: rgba(255, 255, 255, 0.15);
+    text-shadow: 1px 1px 5px rgba(90, 90, 90, 0.737);
   }
   .hero-section .image-col {
     /* border: solid red 1px; */
