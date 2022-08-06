@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
 .App {
   /* border: solid; */
   overflow: hidden;
@@ -88,15 +89,11 @@ button.rounded {
   padding: 0 0 0 60px;
 }
 .hero-section .text-col h1 {
-  font-size: 50px;
+  font-size: 55px;
   line-height: 4rem;
+  font-family: "Oleo Script", cursive;
 }
 @media (max-width: 767px) {
-  .hero-section .row {
-    /* border: solid green 1px; */
-    /* margin: 0; */
-    /* width: 100%; */
-  }
   .hero-section .text-col .review-div {
     margin: 20px;
   }
