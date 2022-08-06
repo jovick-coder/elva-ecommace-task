@@ -49,7 +49,7 @@ function App() {
 
       <section className="hero-section">
         <div className="container">
-          <div className="row" style={{ maxWidth: "1000px", margin: "0 auto" }}>
+          <div className="row">
             <div className="col-md-6 text-col">
               <div className="text-div">
                 <h1>it's not just Food, it's an Experience.</h1>
@@ -57,12 +57,12 @@ function App() {
                   <button className="btn rounded btn-danger  me-2">
                     View menu
                   </button>
-                  <button className="btn rounded btn-white border ">
+                  <button className="btn rounded bg-white border ">
                     Book a table
                   </button>
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 review-div">
                 <span>Review</span>
                 <div
                   className="d-flex"
@@ -76,7 +76,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 image-col d-none d-md-block">
+            <div className="col-md-6 image-col d-n one d-md-block">
               <img src={heroImage} alt="hero food" />
             </div>
           </div>
