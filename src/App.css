@@ -44,12 +44,14 @@
     left: 0;
     z-index: 21;
     color: #fff;
-    background-color: rgb(43, 43, 43);
     top: 0px;
+    background-color: rgb(187 187 187 / 38%);
+    backdrop-filter: blur(10px);
   }
   .top-nav ul li {
-    padding: 20px 15px;
+    padding: 5px 15px;
     font-size: 25px;
+    color: rgba(0, 0, 0);
   }
 
   /* .hero-section .text-col {
