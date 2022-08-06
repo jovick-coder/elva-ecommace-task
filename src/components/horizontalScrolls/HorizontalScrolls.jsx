@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+// import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import FoodCardComponent from "../foodCard/FoodCard";
 import {
   FaArrowCircleLeft,
@@ -98,19 +98,35 @@ function Card({ onClick, selected, title, itemId }) {
 
 export default HorizontalScrolls;
 
-export function HorizontalScrollComponent({ foodObject }) {
-  const [items, setItems] = useState(foodObject.meals);
+export function HorizontalScrollComponent() {
+  const [items, setItems] = useState({
+    loading: true,
+    meals: [],
+  });
   const [startIndex, setStartIndex] = useState(0);
-  const [itemCount, setItemCount] = useState(3);
+  const [itemCount] = useState(3);
   const [visibleItems, setVisibleItems] = useState([]);
   // const [visibleItemsIndex, setVisibleItemsIndex] = useState([0, 1, 2]);
 
   useEffect(() => {
-    // setItems(foodObject.meals);
-  }, []);
+    if (items.loading === true) return;
+    const sliceItem = items.meals.slice(startIndex, startIndex + itemCount);
+    setVisibleItems(sliceItem);
+  }, [items]);
+
   useEffect(() => {
-    setVisibleItems(items.slice(startIndex, startIndex + itemCount));
-  }, [startIndex]);
+    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
+      .then((response) => response.json())
+      .then((data) => {
+        setItems({
+          loading: false,
+          meals: data.meals,
+        });
+      });
+  }, []);
+  // useEffect(() => {
+
+  // }, [startIndex]);
 
   function prevItemFunction() {
     if (startIndex === 0) {
@@ -131,7 +147,7 @@ export function HorizontalScrollComponent({ foodObject }) {
   }
   window.onload = function () {
     // Your code
-    setVisibleItems(items.slice(startIndex, startIndex + itemCount));
+    setVisibleItems(items.meals.slice(startIndex, startIndex + itemCount));
   };
   return (
     <>
@@ -141,29 +157,36 @@ export function HorizontalScrollComponent({ foodObject }) {
           onClick={() => prevItemFunction()}
         />
         <div className="scroll-div w-100">
-          {() => setStartIndex(0)}
-          {visibleItems.map((item, index) => {
-            const { strMeal, strMealThumb, idMeal } = item;
+          {items.loading ? (
+            <span className="m-auto fs-1">Loading...</span>
+          ) : (
+            <>
+              {visibleItems.map((item, index) => {
+                const { strMeal, strMealThumb, idMeal } = item;
 
-            return (
-              <div key={`card${index}`}>
-                <FoodCardComponent
-                  img={strMealThumb}
-                  name={strMeal}
-                  price={"200"}
-                  id={idMeal}
-                />
-              </div>
-            );
-            // }
-          })}
+                return (
+                  <div key={`card${index}`}>
+                    <FoodCardComponent
+                      img={strMealThumb}
+                      name={strMeal}
+                      price={"200"}
+                      id={idMeal}
+                    />
+                  </div>
+                );
+                // }
+              })}
+            </>
+          )}
         </div>
         <div className="dot">
-          {[...Array(Math.round(items.length / itemCount))].map((e, i) => (
-            <span className="" key={`dot${i}`}>
-              <FaDotCircle />
-            </span>
-          ))}
+          {[...Array(Math.round(items.meals.length / itemCount))].map(
+            (e, i) => (
+              <span className="" key={`dot${i}`}>
+                <FaDotCircle />
+              </span>
+            )
+          )}
         </div>
         <FaArrowCircleRight
           className="arrow right"

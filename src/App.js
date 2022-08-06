@@ -2,26 +2,12 @@ import "./App.css";
 import heroImage from "./assets/hero-image-removebg-preview.png";
 import { FaBars, FaShoppingBag } from "react-icons/fa";
 import StarComponent, { StarImageComponent } from "./components/stars/Stars";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HorizontalScrollComponent } from "./components/horizontalScrolls/HorizontalScrolls";
 
 function App() {
-  const [foodObject, setFoodObject] = useState({
-    loading: true,
-    meals: [],
-  });
   const [openMobileNav, setOpenMobileNav] = useState(true);
 
-  useEffect(() => {
-    fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
-      .then((response) => response.json())
-      .then((data) => {
-        setFoodObject({
-          loading: false,
-          meals: data.meals,
-        });
-      });
-  }, []);
   return (
     <div className="App">
       <div className="top-nav">
@@ -83,13 +69,7 @@ function App() {
         </div>
       </section>
       <section>
-        {!foodObject.loading ? (
-          <>
-            <HorizontalScrollComponent foodObject={foodObject} />
-          </>
-        ) : (
-          <span className="m-auto fs-1">Loading...</span>
-        )}
+        <HorizontalScrollComponent />
       </section>
     </div>
   );
