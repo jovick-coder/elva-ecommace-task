@@ -1,4 +1,8 @@
-.App .top-nav {
+.App {
+  /* border: solid; */
+  overflow: hidden;
+}
+.top-nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -57,6 +61,14 @@ button.rounded {
   border-radius: 20px !important;
 }
 
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+.hero-section .row {
+  max-width: 1000px;
+  /* margin: 0 auto; */
+}
 .hero-section .image-col {
   padding: 0;
 }
@@ -78,8 +90,24 @@ button.rounded {
   line-height: 4rem;
 }
 @media (max-width: 767px) {
+  .hero-section .row {
+    /* border: solid green 1px; */
+    /* margin: 0; */
+    /* width: 100%; */
+  }
+  .hero-section .text-col .review-div {
+    margin: 20px;
+  }
   .hero-section .text-col {
     margin-top: 70px;
+    z-index: 11;
+    width: 100%;
+    padding-right: 10px;
+    /* margin: 0; */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2); */
+    backdrop-filter: blur(2px);
+    /* border: solid red 1px; */
   }
   .hero-section .text-col .text-div {
     padding: 0 0 0 10px;
@@ -87,6 +115,18 @@ button.rounded {
   .hero-section .text-col h1 {
     font-size: 45px;
     line-height: 4rem;
+    text-shadow: rgba(255, 255, 255, 0.15);
+  }
+  .hero-section .image-col {
+    /* border: solid red 1px; */
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+    max-width: 500px;
+  }
+  .hero-section .image-col img {
+    z-index: 5;
   }
 }
 .scroll-container {
