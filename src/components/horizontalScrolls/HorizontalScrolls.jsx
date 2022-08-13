@@ -138,7 +138,7 @@ export function HorizontalScrollComponent() {
   }
 
   function nextItemFunction() {
-    console.log(startIndex, items.meals.length - startIndex + itemCount);
+    // console.log(startIndex, items.meals.length - startIndex + itemCount);
     // console.log(visibleItems);
     if (startIndex >= items.meals.length - startIndex + itemCount) {
       setStartIndex(0);
