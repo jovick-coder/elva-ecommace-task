@@ -112,7 +112,7 @@ export function HorizontalScrollComponent() {
     if (items.loading === true) return;
     const sliceItem = items.meals.slice(startIndex, startIndex + itemCount);
     setVisibleItems(sliceItem);
-  }, [items]);
+  }, [items, startIndex]);
 
   useEffect(() => {
     fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
@@ -138,17 +138,18 @@ export function HorizontalScrollComponent() {
   }
 
   function nextItemFunction() {
-    // console.log(startIndex, items.length - startIndex + itemCount);
-    if (startIndex >= items.length - startIndex + itemCount) {
+    console.log(startIndex, items.meals.length - startIndex + itemCount);
+    // console.log(visibleItems);
+    if (startIndex >= items.meals.length - startIndex + itemCount) {
       setStartIndex(0);
       return console.log("last image");
     }
     setStartIndex(startIndex + 1);
   }
-  window.onload = function () {
-    // Your code
-    setVisibleItems(items.meals.slice(startIndex, startIndex + itemCount));
-  };
+  // window.onload = function () {
+  //   // Your code
+  //   setVisibleItems(items.meals.slice(startIndex, startIndex + itemCount));
+  // };
   return (
     <>
       <div className="container scroll-container">
