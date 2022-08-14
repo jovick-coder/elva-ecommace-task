@@ -130,7 +130,7 @@ export function HorizontalScrollComponent() {
 
   function prevItemFunction() {
     if (startIndex === 0) {
-      setStartIndex(items.length - itemCount);
+      setStartIndex(items.meals.length - itemCount);
 
       return console.log("first image");
     }
@@ -146,10 +146,6 @@ export function HorizontalScrollComponent() {
     }
     setStartIndex(startIndex + 1);
   }
-  // window.onload = function () {
-  //   // Your code
-  //   setVisibleItems(items.meals.slice(startIndex, startIndex + itemCount));
-  // };
   return (
     <>
       <div className="container scroll-container">
